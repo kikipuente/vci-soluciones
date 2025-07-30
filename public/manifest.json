@@ -1,0 +1,25 @@
+{
+  "short_name": "VCI Soluciones",
+  "name": "VCI Soluciones - Tecnología Integral",
+  "icons": [
+    {
+      "src": "assets/imagenes/logonofondo.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/imagenes/logonofondo.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "assets/imagenes/logonofondo.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#1e3a8a",
+  "background_color": "#ffffff"
+}
