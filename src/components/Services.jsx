@@ -44,64 +44,79 @@ const Services = () => {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <div className="relative py-20 px-8 text-center overflow-hidden">
+      <div className="relative py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 text-center overflow-hidden">
         {/* Imagen de fondo completa */}
         <div className="absolute inset-0">
           <img 
             src="/assets/imagenes/servicios123.png" 
             alt="Servicios VCI Soluciones"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-center"
           />
           {/* Overlay azul con opacidad para mantener legibilidad */}
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/75 via-blue-800/70 to-blue-700/75"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-blue-800/75 to-blue-700/80"></div>
         </div>
 
-        <div className="relative z-10">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg">
+        <div className="relative z-10 max-w-4xl mx-auto">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 drop-shadow-lg">
             Nuestros <span className="text-blue-300">Servicios</span>
           </h1>
-          <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed drop-shadow">
+          <p className="text-lg sm:text-xl md:text-2xl text-blue-100 leading-relaxed drop-shadow px-4">
             Soluciones tecnológicas diseñadas para potenciar tu negocio y garantizar tu operatividad.
           </p>
         </div>
       </div>
 
       {/* Services List */}
-      <div className="py-16 sm:py-24">
+      <div className="py-12 sm:py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-20">
+          <div className="space-y-16 sm:space-y-20">
             {servicesData.map((service, index) => (
               <div 
                 key={service.title} 
-                className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center"
+                className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 items-center"
               >
-                <div className={`relative flex justify-center items-center ${index % 2 === 0 ? 'md:order-1' : 'md:order-2'}`}>
-                  {/* Rombo principal grande y visible */}
-                  <div className="absolute w-80 h-80 bg-gradient-to-br from-blue-400 via-blue-500 to-blue-700 transform rotate-45 rounded-3xl shadow-2xl opacity-95 scale-110"></div>
+                {/* Imagen con decoraciones - Mobile First */}
+                <div className={`relative flex justify-center items-center order-1 mb-6 lg:mb-0 ${
+                  index % 2 === 0 ? 'lg:order-1' : 'lg:order-2'
+                }`}>
+                  {/* Decoraciones - Solo en desktop para evitar superposición con texto */}
+                  <div className="absolute hidden lg:block w-80 h-80 bg-gradient-to-br from-blue-400 via-blue-500 to-blue-700 transform rotate-45 rounded-3xl shadow-2xl opacity-95 scale-110"></div>
                   
-                  {/* Rombo secundario más pequeño */}
-                  <div className={`absolute ${index % 2 === 0 ? '-top-10 -right-10' : '-top-10 -left-10'} w-32 h-32 bg-gradient-to-br from-blue-300 to-blue-600 transform rotate-12 rounded-2xl shadow-lg opacity-80`}></div>
+                  {/* Rombo secundario - Solo desktop */}
+                  <div className={`absolute hidden lg:block ${
+                    index % 2 === 0 ? '-top-10 -right-10' : '-top-10 -left-10'
+                  } w-32 h-32 bg-gradient-to-br from-blue-300 to-blue-600 transform rotate-12 rounded-2xl shadow-lg opacity-80`}></div>
                   
-                  {/* Círculo decorativo */}
-                  <div className={`absolute ${index % 2 === 0 ? '-bottom-8 -left-8' : '-bottom-8 -right-8'} w-24 h-24 bg-gradient-to-br from-blue-200 to-blue-500 rounded-full shadow-lg opacity-70`}></div>
+                  {/* Círculo decorativo - Solo desktop */}
+                  <div className={`absolute hidden lg:block ${
+                    index % 2 === 0 ? '-bottom-8 -left-8' : '-bottom-8 -right-8'
+                  } w-24 h-24 bg-gradient-to-br from-blue-200 to-blue-500 rounded-full shadow-lg opacity-70`}></div>
+                  
+                  {/* Decoración móvil más sutil - Solo fondo de la imagen */}
+                  <div className="absolute lg:hidden inset-0 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl opacity-30"></div>
                   
                   <img 
                     src={service.imageUrl} 
                     alt={service.title}
-                    className="relative z-20 rounded-2xl shadow-[0_0_32px_0_rgba(59,130,246,0.7)] max-h-96 w-auto object-contain transition-all duration-300 transform hover:scale-105 bg-white border-4 border-white"
+                    className="relative z-20 rounded-xl lg:rounded-2xl shadow-lg lg:shadow-[0_0_32px_0_rgba(59,130,246,0.7)] max-h-64 sm:max-h-72 lg:max-h-96 w-auto object-contain transition-all duration-300 transform hover:scale-105 bg-white border-2 lg:border-4 border-white"
                   />
                 </div>
 
-                <div className={`${index % 2 === 0 ? 'md:order-2' : 'md:order-1'}`}>
-                  <h2 className="text-3xl font-bold text-gray-900 mb-4">{service.title}</h2>
-                  <p className="text-gray-600 mb-6 text-lg leading-relaxed">
+                {/* Contenido de texto */}
+                <div className={`order-2 ${
+                  index % 2 === 0 ? 'lg:order-2' : 'lg:order-1'
+                } px-4 sm:px-6 lg:px-0`}>
+                  <h2 className="text-2xl sm:text-3xl lg:text-3xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight">
+                    {service.title}
+                  </h2>
+                  <p className="text-gray-600 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed">
                     {service.description}
                   </p>
-                  <ul className="space-y-3">
+                  <ul className="space-y-2 sm:space-y-3">
                     {service.features.map(feature => (
-                      <li key={feature} className="flex items-center">
-                        <CheckCircle className="w-6 h-6 text-blue-600 mr-3 flex-shrink-0" />
-                        <span className="text-gray-700">{feature}</span>
+                      <li key={feature} className="flex items-start sm:items-center">
+                        <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 mr-2 sm:mr-3 flex-shrink-0 mt-0.5 sm:mt-0" />
+                        <span className="text-gray-700 text-sm sm:text-base leading-relaxed">{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -112,17 +127,28 @@ const Services = () => {
         </div>
       </div>
 
-      <div className="mt-8 py-6 rounded-xl">
-        <h3 className="text-xl font-semibold text-blue-900 mb-4 text-center">
-          Aceptamos las siguientes formas de pago:
-        </h3>
-        <div className="flex flex-wrap justify-center gap-8">
-          {paymentMethods.map((m, idx) => (
-            <div key={idx} className="flex flex-col items-center">
-              <span className="text-4xl mb-1 bg-gray-100 rounded p-2">{m.icon}</span>
-              <span className="text-blue-900 text-sm font-semibold">{m.name}</span>
+      {/* Payment Methods Section */}
+      <div className="bg-gray-50 py-8 sm:py-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold text-blue-900 mb-6 sm:mb-8">
+              Aceptamos las siguientes formas de pago:
+            </h3>
+            <div className="flex flex-wrap justify-center gap-6 sm:gap-8 lg:gap-12">
+              {paymentMethods.map((method, idx) => (
+                <div key={idx} className="flex flex-col items-center group cursor-pointer">
+                  <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-md group-hover:shadow-lg transition-all duration-300 transform group-hover:-translate-y-1">
+                    <span className="text-3xl sm:text-4xl lg:text-5xl mb-2 block">
+                      {method.icon}
+                    </span>
+                  </div>
+                  <span className="text-blue-900 text-sm sm:text-base lg:text-lg font-semibold mt-3 group-hover:text-blue-700 transition-colors">
+                    {method.name}
+                  </span>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </div>
