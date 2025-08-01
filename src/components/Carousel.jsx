@@ -2,19 +2,16 @@ import React, { useState } from 'react';
 
 const videos = [
   {
-    src: '/assets/videos/video1.mp4',
-    title: 'Impresoras de Alta Calidad',
-    description: 'Equipos láser y multifuncionales para tu oficina',
+    src: '/assets/videos/intro.mp4',
+    title: 'VCI Soluciones',
   },
   {
-    src: '/assets/videos/video2.mp4',
-    title: 'Cámaras de Seguridad',
-    description: 'Monitoreo y protección 24/7 para tu empresa',
+    src: '/assets/videos/serviciotecnico.mp4',
+    title: 'Servicio Tecnico Especializado',
   },
   {
-    src: '/assets/videos/video3.mp4',
-    title: 'Soporte Técnico Especializado',
-    description: 'Soluciones rápidas y efectivas para tu operación',
+    src: '/assets/videos/ventayreparacion.mp4',
+    title: 'Venta y Reparacion',
   },
   {
     src: '/assets/videos/reparacionfix.mp4',
